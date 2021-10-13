@@ -1,11 +1,11 @@
 const express = require('express');
 require('dotenv').config()
-const studentrouter = require('./routes/student');
-const app = express();
+require('./dbconfig/databaseconfig');
 const bodyParser = require('body-parser');
+const app = express();
+const studentrouter = require('./routes/student');
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-require('./dbconfig/databaseconfig');
 app.use('/student', studentrouter);
 
 app.get('/', function (req, res) {

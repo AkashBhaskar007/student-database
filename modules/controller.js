@@ -43,10 +43,12 @@ exports.updateStudentController = async (req, res) => {
         grade
     }
     const student = await updateStudentDetails(updatedata);
-    console.log(student);
     if (!student)
         return res.send({ message: 'Something went wrong' })
-    return res.send({ message: 'Updated successfully!' });
+    return res.send({
+        message: 'Updated successfully!',
+        data: updatedata
+    });
 }
 
 
